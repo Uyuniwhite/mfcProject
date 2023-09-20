@@ -224,7 +224,7 @@ void CmfcProjectDlg::OnBnClickedGetCenter()
 
 	for (int j = 0; j < nHeight; j++) {
 		for (int i = 0; i < nWidth; i++) {
-			if (fm[j * nPitch + i] >= 0) {
+			if (fm[j * nPitch + i] == 0) {
 				nSumX += i;
 				nSumY += j;
 				nCount++;
