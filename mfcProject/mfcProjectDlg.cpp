@@ -167,12 +167,11 @@ HCURSOR CmfcProjectDlg::OnQueryDragIcon()
 void CmfcProjectDlg::OnBnClickedBtnCreate()
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
-	
 	drawCircle();
 }
 
 void CmfcProjectDlg::drawCircle()
-{
+{	
 	unsigned char* fm = (unsigned char*)m_pDlgImage->m_Image.GetBits();
 	int nWidth = m_pDlgImage->m_Image.GetWidth();
 	int nHeight = m_pDlgImage->m_Image.GetHeight();

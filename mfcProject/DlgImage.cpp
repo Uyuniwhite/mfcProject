@@ -93,6 +93,9 @@ void DlgImage::drawBorder(CDC* pDC)
 		CPen pen(PS_SOLID, 3, RGB(255, 255, 0)); 
 		CPen* pOldPen = pDC->SelectObject(&pen);
 
+		CBrush brush(RGB(176, 196, 222));
+		CBrush* pOldBrush = pDC->SelectObject(&brush);
+
 		pDC->Ellipse(rect);
 
 		pDC->SelectObject(pOldPen);
