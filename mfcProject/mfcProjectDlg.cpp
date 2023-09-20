@@ -103,7 +103,9 @@ BOOL CmfcProjectDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 작은 아이콘을 설정합니다.
 
 	// TODO: 여기에 추가 초기화 작업을 추가합니다.
-	MoveWindow(0, 0, 1200, 700);
+	MoveWindow(0, 0, 1000, 700);
+
+	SetFontStyle();
 
 	m_pDlgImage = new DlgImage;
 	m_pDlgImage->Create(IDD_DlgImage, this);
@@ -239,4 +241,21 @@ void CmfcProjectDlg::OnBnClickedGetCenter()
 	CString CenterData;
 	CenterData.Format(_T("원의 중심은 (%.0f, %.0f)입니다!"), dCenterX, dCenterY);
 	SetDlgItemText(IDC_Center_label, CenterData);
+}
+
+void CmfcProjectDlg::SetFontStyle()
+{
+	CStatic* pSizeText1 = (CStatic*)GetDlgItem(IDC_Size_Text);
+	CStatic* pSizeText2 = (CStatic*)GetDlgItem(IDC_Size_Text2);
+	CStatic* pStaticText2 = (CStatic*)GetDlgItem(IDC_Center_label);
+
+	if (true)
+	{
+		CFont font;
+		font.CreatePointFont(30, _T("Arial"));
+
+		pSizeText1->SetFont(&font);
+		pSizeText2->SetFont(&font);
+		pStaticText2->SetFont(&font);
+	}
 }

@@ -39,6 +39,7 @@ public:
 
 private:
 	void drawCircle();
+	void SetFontStyle();
 public:
 	afx_msg void OnBnClickedGetCenter();
 };

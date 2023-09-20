@@ -9,10 +9,13 @@
 #define IDD_DlgImage                    103
 #define IDR_MAINFRAME                   128
 #define IDC_Size_Text                   1000
+#define IDC_EDIT1                       1001
 #define IDC_Edit_Radius                 1001
 #define IDC_Btn_Create                  1002
+#define IDC_BUTTON1                     1003
 #define IDC_Get_Center                  1003
 #define IDC_Center_label                1004
+#define IDC_Size_Text2                  1005
 
 // Next default values for new objects
 // 
