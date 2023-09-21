@@ -42,4 +42,5 @@ private:
 	void SetFontStyle();
 public:
 	afx_msg void OnBnClickedGetCenter();
+//	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 };

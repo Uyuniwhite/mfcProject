@@ -68,6 +68,7 @@ BEGIN_MESSAGE_MAP(CmfcProjectDlg, CDialogEx)
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_Btn_Create, &CmfcProjectDlg::OnBnClickedBtnCreate)
 	ON_BN_CLICKED(IDC_Get_Center, &CmfcProjectDlg::OnBnClickedGetCenter)
+//	ON_WM_CTLCOLOR()
 END_MESSAGE_MAP()
 
 
@@ -192,11 +193,10 @@ void CmfcProjectDlg::drawCircle()
 				int dx = i - nCenterX;
 				int dy = j - nCenterY;
 				if (dx * dx + dy * dy <= nRadius * nRadius) {
-					fm[j * nPitch + i] = 0;
+					fm[j * nPitch + i] = 80;
 				}
 			}
 		}
-
 		m_pDlgImage->nCenterX = nCenterX;
 		m_pDlgImage->nCenterY = nCenterY;
 		m_pDlgImage->nRadius = nRadius;
@@ -218,6 +218,7 @@ void CmfcProjectDlg::OnBnClickedGetCenter()
 	int nWidth = m_pDlgImage->m_Image.GetWidth();
 	int nHeight = m_pDlgImage->m_Image.GetHeight();
 	int nPitch = m_pDlgImage->m_Image.GetPitch();
+	int nRadius = GetDlgItemInt(IDC_Edit_Radius);
 
 	int nSumX = 0;
 	int nSumY = 0;
@@ -225,7 +226,7 @@ void CmfcProjectDlg::OnBnClickedGetCenter()
 
 	for (int j = 0; j < nHeight; j++) {
 		for (int i = 0; i < nWidth; i++) {
-			if (fm[j * nPitch + i] == 0) {
+			if (fm[j * nPitch + i] == 80) {
 				nSumX += i;
 				nSumY += j;
 				nCount++;
@@ -238,9 +239,14 @@ void CmfcProjectDlg::OnBnClickedGetCenter()
 
 	std::cout << dCenterX << "\t" << dCenterY << std::endl;
 	
-	CString CenterData;
-	CenterData.Format(_T("원의 중심은 (%.0f, %.0f)입니다!"), dCenterX, dCenterY);
-	SetDlgItemText(IDC_Center_label, CenterData);
+	if (nCount != 0) {
+		CString CenterData;
+		CenterData.Format(_T("원의 중심은 (%.0f, %.0f)입니다!"), dCenterX, dCenterY);
+		SetDlgItemText(IDC_Center_label, CenterData);
+	}
+	else {
+		AfxMessageBox(_T("원을 먼저 그려주세요!"));
+	}
 }
 
 void CmfcProjectDlg::SetFontStyle()

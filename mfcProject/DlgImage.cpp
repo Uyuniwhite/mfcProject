@@ -89,7 +89,13 @@ void DlgImage::drawBorder(CDC* pDC)
 {
 	if (m_Image)
 	{	
-		CRect rect(nCenterX - nRadius, nCenterY - nRadius, nCenterX + nRadius, nCenterY + nRadius);
+		int top = nCenterY - nRadius;
+		int bottom = nCenterY + nRadius;
+		int left = nCenterX - nRadius;
+		int right = nCenterX + nRadius;
+
+		//CRect rect(nCenterX - nRadius, nCenterY - nRadius, nCenterX + nRadius, nCenterY + nRadius);
+		CRect rect(left, top, right, bottom);
 		CPen pen(PS_SOLID, 3, RGB(255, 255, 0)); 
 		CPen* pOldPen = pDC->SelectObject(&pen);
 
