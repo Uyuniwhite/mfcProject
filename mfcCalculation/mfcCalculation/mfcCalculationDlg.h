@@ -43,6 +43,8 @@ protected:
 private:
 	void SetValueText(int cal);
 	void SetResultText();
+	void SetContinueResultText();
+	void ContinueCal(int cal);
 public:
 	afx_msg void OnBnClickedBtn0();
 	afx_msg void OnBnClickedBtn1();

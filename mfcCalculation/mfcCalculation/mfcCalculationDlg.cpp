@@ -21,15 +21,15 @@ class CAboutDlg : public CDialogEx
 public:
 	CAboutDlg();
 
-// 대화 상자 데이터입니다.
+	// 대화 상자 데이터입니다.
 #ifdef AFX_DESIGN_TIME
 	enum { IDD = IDD_ABOUTBOX };
 #endif
 
-	protected:
+protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 지원입니다.
 
-// 구현입니다.
+	// 구현입니다.
 protected:
 	DECLARE_MESSAGE_MAP()
 };
@@ -320,7 +320,7 @@ void CmfcCalculationDlg::OnBnClickedBtnRes()
 		calKind = 0;
 		currentValue = "";
 	}
-	
+
 }
 
 void CmfcCalculationDlg::SetResultText()
@@ -335,7 +335,7 @@ void CmfcCalculationDlg::SetResultText()
 		sResult.Format(_T("%f"), fResult);
 		SetDlgItemText(IDC_CURRENT, sResult);
 	}
-	
+
 	SetDlgItemText(IDC_FORMER, _T(""));
 }
 
@@ -359,7 +359,7 @@ void CmfcCalculationDlg::SetValueText(int cal)
 		else if (cal == 4) {
 			dataValue.Format(_T("%s ÷ "), formerValue);
 		}
-		
+
 		SetDlgItemText(IDC_FORMER, dataValue);
 		SetDlgItemText(IDC_CURRENT, _T(""));
 		currentValue = "";
@@ -374,11 +374,11 @@ void CmfcCalculationDlg::OnBnClickedBtnDel()
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 	GetDlgItemText(IDC_CURRENT, currentValue);
 	GetDlgItemText(IDC_FORMER, formerValue);
-	
+
 	int lenCurrentValue = currentValue.GetLength();
 
 	if (lenCurrentValue != 0) {
-		currentValue.Delete(lenCurrentValue -1, 1);
+		currentValue.Delete(lenCurrentValue - 1, 1);
 		SetDlgItemText(IDC_CURRENT, currentValue);
 	}
 }
